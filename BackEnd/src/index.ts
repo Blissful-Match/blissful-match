@@ -26,8 +26,8 @@ const repository: IRepository = container.get<IRepository>(TYPES.IRepository);
 const app = express();
 
 app.use(cookieSession({
-  name: "session",
-  keys: ["iconwala"],
+  name: 'session',
+  keys: ['blissful-match'],
   maxAge: 24 * 60 * 60 * 100
 }));
 
@@ -36,8 +36,8 @@ passport.use(
     {
       clientID: process.env['GOOGLE.CLIENT_ID'] || '',
       clientSecret: process.env['GOOGLE.CLIENT_SECRET'] || '',
-      callbackURL: "/auth/google/callback",
-      scope: ['profile', 'email'],
+      callbackURL: '/auth/google/callback',
+      scope: ['profile', 'email']
     },
     function (accessToken, refreshToken, profile, callback){
       callback(null, profile);
