@@ -1,5 +1,5 @@
 {
-  "name": "iconwala",
+  "name": "blissful-match",
   "version": "1.0.0",
   "scripts": {
     "build": "node ./util/build.js",
