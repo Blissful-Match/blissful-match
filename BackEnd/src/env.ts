@@ -27,9 +27,16 @@ cliArgs = commandLineArgs([
   { partial: true }
 );
 
-const result = dotenv.config({
-  path: join(__dirname, '..', 'env', `${get(cliArgs, 'NODE_ENV')}.env`)
-});
+let result;
+if (process.env.NODE_ENV === 'prod'){
+  result = dotenv.config({
+    path: join(__dirname, `${get(cliArgs, 'NODE_ENV')}.env`)
+  });
+} else {
+  result = dotenv.config({
+    path: join(__dirname, '..', 'env', `${get(cliArgs, 'NODE_ENV')}.env`)
+  });
+}
 
 console.log('REPOSITORY.MONGO.CONNSTR', process.env['REPOSITORY.MONGO.CONNSTR']);
 
