@@ -19,7 +19,7 @@ import routes from './routes';
 import errorHandlerMiddleware from './error-handler';
 
 import { APINotFoundError } from './error-handler/definition';
-import PassportGoogleOauth20 from 'passport-google-oauth20';
+// import PassportGoogleOauth20 from 'passport-google-oauth20';
 
 const repository: IRepository = container.get<IRepository>(TYPES.IRepository);
 
@@ -31,6 +31,7 @@ app.use(cookieSession({
   maxAge: 24 * 60 * 60 * 100
 }));
 
+/* Enable while using google auth
 passport.use(
   new PassportGoogleOauth20.Strategy(
     {
@@ -44,7 +45,7 @@ passport.use(
     }
   )
 );
-
+*/
 passport.serializeUser((user: Express.User, done) => {
   done(null, user);
 });
