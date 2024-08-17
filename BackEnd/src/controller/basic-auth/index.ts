@@ -17,7 +17,7 @@ const users = [
   }
 ];
 
-if (process.env['NODE_ENV'] === 'dev') {
+if (process.env.NODE_ENV === 'dev') {
   console.log('LogIn credentials:');
   users.forEach((user) => {
     console.log(`username: ${get(user, 'username')}, password: ${get(user, 'password')}`);

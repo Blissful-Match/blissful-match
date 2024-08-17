@@ -33,22 +33,20 @@ if (process.env.NODE_ENV === 'prod'){
     path: join(__dirname, '..' ,`prod.env`)
   });
   if(result.error) {
-    DefaultConfigSetup();
+    defaultConfigSetup();
   }
 } else {
-  DefaultConfigSetup();
+  defaultConfigSetup();
+  // Overwrite Environment arguments with CLI arguments if provided
+  unset(cliArgs, '_unknown');
+  Object.keys(cliArgs).forEach((e) => {
+    process.env[e] = get(cliArgs, e);
+  });
 }
-
-
-// Overwrite Environment arguments with CLI arguments if provided
-unset(cliArgs, '_unknown');
-Object.keys(cliArgs).forEach((e) => {
-  process.env[e] = get(cliArgs, e);
-});
 
 if (result?.error) { throw result.error; }
 
-function DefaultConfigSetup() {
+function defaultConfigSetup() {
   result = dotenv.config({
     path: join(__dirname, '..', 'env', `${get(cliArgs, 'NODE_ENV')}.env`)
   });
