@@ -38,6 +38,7 @@ if (process.env.NODE_ENV === 'prod'){
   });
 }
 
+console.log('NODE_ENV', process.env['NODE_ENV']);
 console.log('REPOSITORY.MONGO.CONNSTR', process.env['REPOSITORY.MONGO.CONNSTR']);
 
 // Overwrite Environment arguments with CLI arguments if provided
