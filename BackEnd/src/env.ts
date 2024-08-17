@@ -27,14 +27,11 @@ cliArgs = commandLineArgs([
   { partial: true }
 );
 
-console.log('============================================Before initialization=========================================');
-console.log(process.env);
 const result = dotenv.config({
   path: join(__dirname, '..', 'env', `${get(cliArgs, 'NODE_ENV')}.env`)
 });
-console.log('============================================Initialization-done=========================================');
-console.log(process.env);
-console.log('=============================================Done=========================================');
+
+console.log('REPOSITORY.MONGO.CONNSTR', process.env['REPOSITORY.MONGO.CONNSTR']);
 
 // Overwrite Environment arguments with CLI arguments if provided
 unset(cliArgs, '_unknown');
