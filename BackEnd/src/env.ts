@@ -29,17 +29,19 @@ cliArgs = commandLineArgs([
 
 let result;
 if (process.env.NODE_ENV === 'prod'){
+  console.log('PROD NODE_ENV', process.env['NODE_ENV']);
+  console.log('PROD REPOSITORY.MONGO.CONNSTR', process.env['REPOSITORY.MONGO.CONNSTR']);
   result = dotenv.config({
     path: join(__dirname, `${get(cliArgs, 'NODE_ENV')}.env`)
   });
 } else {
+  console.log('DEV NODE_ENV', process.env['NODE_ENV']);
+  console.log('DEV REPOSITORY.MONGO.CONNSTR', process.env['REPOSITORY.MONGO.CONNSTR']);
   result = dotenv.config({
     path: join(__dirname, '..', 'env', `${get(cliArgs, 'NODE_ENV')}.env`)
   });
 }
 
-console.log('NODE_ENV', process.env['NODE_ENV']);
-console.log('REPOSITORY.MONGO.CONNSTR', process.env['REPOSITORY.MONGO.CONNSTR']);
 
 // Overwrite Environment arguments with CLI arguments if provided
 unset(cliArgs, '_unknown');
