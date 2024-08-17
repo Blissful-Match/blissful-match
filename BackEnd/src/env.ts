@@ -29,14 +29,10 @@ cliArgs = commandLineArgs([
 
 let result;
 if (process.env.NODE_ENV === 'prod'){
-  console.log('PROD NODE_ENV', process.env['NODE_ENV']);
-  console.log('PROD REPOSITORY.MONGO.CONNSTR', process.env['REPOSITORY.MONGO.CONNSTR']);
   result = dotenv.config({
-    path: join(__dirname, `${get(cliArgs, 'NODE_ENV')}.env`)
+    path: join(__dirname, `prod.env`)
   });
 } else {
-  console.log('DEV NODE_ENV', process.env['NODE_ENV']);
-  console.log('DEV REPOSITORY.MONGO.CONNSTR', process.env['REPOSITORY.MONGO.CONNSTR']);
   result = dotenv.config({
     path: join(__dirname, '..', 'env', `${get(cliArgs, 'NODE_ENV')}.env`)
   });
