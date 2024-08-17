@@ -8,7 +8,7 @@ try {
     if(error || stderr.length > 0) { 
       console.log('error-start------------------------------');
       console.log(error);
-      console.log(error.message);
+      console.log(error?.message);
       console.log('error-end------------------------------');
       console.log('stderr-start------------------------------');
       console.log(stderr);

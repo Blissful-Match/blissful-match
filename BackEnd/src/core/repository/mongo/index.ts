@@ -13,10 +13,10 @@ class MongoRepository implements IRepository {
   public isConnected: boolean = false;
   private dbObj: MongoClient = new MongoClient(
     process.env['REPOSITORY.MONGO.CONNSTR'] as string,
-    {
-      useUnifiedTopology: true,
-      useNewUrlParser: true
-    } as MongoClientOptions
+    // {
+    //   useUnifiedTopology: true,
+    //   useNewUrlParser: true
+    // } as MongoClientOptions
   );
 
   constructor() {
