@@ -4,7 +4,7 @@
   "scripts": {
     "build": "npm i && node ./util/build.js",
     "lint": "tslint --project \"tsconfig.json\" --quiet",
-    "start": "node --env-file=prod.env ./dist/index.js",
+    "start": "node --env-file=./env/prod.env ./dist/index.js",
     "start:dev": "nodemon --config nodemon.json",
     "test": "nyc ts-mocha test/test.ts --timeout=15000 --exit",
     "coverage": "nyc report --reporter=text-lcov | coveralls"

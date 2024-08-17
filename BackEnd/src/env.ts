@@ -30,12 +30,13 @@ cliArgs = commandLineArgs([
 let result;
 if (process.env.NODE_ENV === 'prod'){
   result = dotenv.config({
-    path: join(__dirname, `prod.env`)
+    path: join(__dirname, '..' ,`prod.env`)
   });
+  if(result.error) {
+    DefaultConfigSetup();
+  }
 } else {
-  result = dotenv.config({
-    path: join(__dirname, '..', 'env', `${get(cliArgs, 'NODE_ENV')}.env`)
-  });
+  DefaultConfigSetup();
 }
 
 
@@ -45,4 +46,10 @@ Object.keys(cliArgs).forEach((e) => {
   process.env[e] = get(cliArgs, e);
 });
 
-if (result.error) { throw result.error; }
+if (result?.error) { throw result.error; }
+
+function DefaultConfigSetup() {
+  result = dotenv.config({
+    path: join(__dirname, '..', 'env', `${get(cliArgs, 'NODE_ENV')}.env`)
+  });
+}
