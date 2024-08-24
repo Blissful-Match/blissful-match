@@ -19,19 +19,23 @@ const Login = () => {
                 <form>
                     <div className="input-group">
                         <label htmlFor="email">Email</label>
-                        <input type="email"
+                        <input
+                            type="email"
                             id="email"
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
-                            required />
+                            required
+                        />
                     </div>
                     <div className="input-group">
                         <label htmlFor="password">Password</label>
-                        <input type="password"
+                        <input
+                            type="password"
                             id="password"
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
-                            required />
+                            required
+                        />
                     </div>
                     <div className="forgot-keep">
                         <a href="#">Forgot Password ?</a>
@@ -39,7 +43,9 @@ const Login = () => {
                             <input type="checkbox" /> Keep me logged in
                         </label>
                     </div>
-                    <button className="login" type="submit">Login</button>
+                    <button className="login" type="submit">
+                        Login
+                    </button>
                 </form>
                 <p className="signup">
                     New to Blissfull Match? <a href="#">Sign up for free</a>

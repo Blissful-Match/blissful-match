@@ -1,5 +1,8 @@
 import React from 'react';
+import redHeart from '@assets/svg/RedHeart.svg';
+import grayHeart from '@assets/svg/GrayHeart.svg';
 import { Profile } from '../Profile';
+import { NavLink } from 'react-router-dom';
 
 const MembersCard: React.FC<{ profile: Profile }> = ({
     profile,
@@ -10,15 +13,24 @@ const MembersCard: React.FC<{ profile: Profile }> = ({
         <div key={profile.name} className="grid grid-cols-4 h-fit gap-3">
             <div className="w-auto bg-bm-gray shadow-lg rounded-lg col-span-1 h-fit">
                 <div className="m-2 flex flex-col items-center">
-                    <div className="w-11/12 h-60 overflow-hidden grid">
+                    <div className="w-11/12 h-60 overflow-hidden grid relative">
                         <img
                             src={profile.imageUrl}
                             alt={profile.name}
                             className="justify-self-center"
                         />
+                        <button
+                            type="button"
+                            className="absolute top-2 right-1 w-6 h-6"
+                        >
+                            <img
+                                src={profile.isLiked ? redHeart : grayHeart}
+                                alt="like"
+                            />
+                        </button>
                     </div>
                     <button className="mt-4 w-11/12 bg-gray-400 text-white py-2 rounded-lg">
-                        View Profile
+                        <NavLink to="/profile/1">View Profile</NavLink>
                     </button>
                 </div>
             </div>

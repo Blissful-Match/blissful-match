@@ -1,6 +1,4 @@
 import { resolve as _resolve } from 'path';
-// eslint-disable-next-line prettier/prettier
-// import packageConf from './package.json' with { type: "json"};
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import TerserPlugin from 'terser-webpack-plugin';

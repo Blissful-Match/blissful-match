@@ -17,6 +17,7 @@ export interface Profile {
     motherTongue: string;
     subCaste?: string;
     imageUrl: string | '*.png';
+    isLiked: boolean;
 }
 
 // Dummy profile data
@@ -34,6 +35,7 @@ export const profiles: Profile[] = [
         caste: 'Punjabi',
         motherTongue: 'Punjabi',
         imageUrl: pooja,
+        isLiked: true,
     },
     {
         id: '456',
@@ -48,6 +50,7 @@ export const profiles: Profile[] = [
         caste: 'Assami',
         motherTongue: 'Assami',
         imageUrl: blueGirl,
+        isLiked: false,
     },
     {
         id: '789',
@@ -62,5 +65,6 @@ export const profiles: Profile[] = [
         caste: 'Bengali',
         motherTongue: 'Bangala',
         imageUrl: blackTopGirl,
+        isLiked: true,
     },
 ];
